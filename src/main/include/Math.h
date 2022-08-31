@@ -8,6 +8,10 @@
 #include <frc/XboxController.h>
 
 class Math
+/** A lot of math for the sake of getting sworve to work.
+ *  Phillip is bullying me LLC. All rights reserved.
+ **/
+
 {
   public:
   void MathPeriodic();

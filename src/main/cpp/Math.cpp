@@ -3,9 +3,8 @@
 void Math::MathPeriodic()
 {
   /* https://docs.google.com/presentation/d/1IBYSYjfh4JwQ7NEGU0dBCiW33O0HDwejURL-Y8JQ0Gg/edit#slide=id.g13ef22b85ee_2_50
-     was used as a guide for this code.
-  */
-  /*
+   *  was used as a guide for this code.
+   *
    Note that XY vectors are composed of two doubles of an x coordinate
    and a y coordinate respectively.
    The value of each double can range from -1 to 1 which correspond directly
@@ -122,11 +121,11 @@ std::vector<double> Math::xy_to_zm(std::vector<double> &in_vector)
   std::vector<double> out_vector;
 
   // Distance formula to determine magnitude.
-  // Zeroes are included to stay true to the formula.
+  // Zeroes are removed for preformance.
 
   out_vector[1] =
-    ( std::sqrt( std::pow( ( in_vector[0] - 0.0 ), 2.0 ) +
-                 std::pow( ( in_vector[1] - 0.0 ), 2.0 ) ) );
+    ( std::sqrt( std::pow(in_vector[0], 2.0 ) +
+                 std::pow(in_vector[1], 2.0 ) ) );
 
   // Now for the hard part, determining an angle given two points.
   // I do not understand how to do this, however, it looks like std::atan2 does

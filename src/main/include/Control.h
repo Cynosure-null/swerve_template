@@ -20,19 +20,38 @@ class Control
 private:
 
   struct PidCoeff {
-    double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
-  };
+    double kP,
+      double kI,
+      double kD,
+      double kIz,
+      double kFF,
+      double kMaxOutput,
+      double kMinOutput};
 
- WPI_talonFX m_FORE_PORT_MOTOR {};
- WPI_talonFX m_FORE_STARBOARD_MOTOR {};
- WPI_talonFX m_AFT_PORT_MOTOR {};
- WPI_talonFX m_AFT_STARBOARD_MOTOR {};
+  WPI_talonFX m_FORE_PORT_SPIN_MOTOR {};
+  WPI_talonFX m_FORE_STARBOARD_SPIN_MOTOR {};
+  WPI_talonFX m_AFT_PORT_SPIN_MOTOR {};
+  WPI_talonFX m_AFT_STARBOARD_SPIN_MOTOR {};
+
+  WPI_talonFX m_FORE_PORT_TURN_MOTOR {};
+  WPI_talonFX m_FORE_STARBOARD_TURN_MOTOR {};
+  WPI_talonFX m_AFT_PORT_TURN_MOTOR {};
+  WPI_talonFX m_AFT_STARBOARD_TURN_MOTOR {};
+
   //FP stands for Fore Port
   //FS stands for Fore Starboard
   //AP stands for Aft Port
   //AS stands for Aft Starboard
-  PidCoeff m_FP_PID_COEF{};
-  PidCoeff m_FS_PID_COEF{};
-  PidCoeff m_AP_PID_COEF{};
-  PidCoeff m_AS_PID_COEF{};
+  PidCoeff m_FP_SPIN_PID_COEF{};
+  PidCoeff m_FS_SPIN_PID_COEF{};
+  PidCoeff m_AP_SPIN_PID_COEF{};
+  PidCoeff m_AS_SPIN_PID_COEF{};
+
+  PidCoeff m_FP_TURN_PID_COEF{};
+  PidCoeff m_FS_TURN_PID_COEF{};
+  PidCoeff m_AP_TURN_PID_COEF{};
+  PidCoeff m_AS_TURN_PID_COEF{};
+
+  static const double m_SPIN_RPM_MAP;
+  static const double m_TURN_ENCODER_MAP;
 };
