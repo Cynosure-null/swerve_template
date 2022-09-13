@@ -43,13 +43,13 @@ Control::Control(){
     // Set the peak and nominal outputs
   m_FORE_PORT_SPIN_MOTOR.ConfigNominalOutputForward(0, 10);
   m_FORE_PORT_SPIN_MOTOR.ConfigNominalOutputReverse(0, 10);
-  m_FORE_PORT_SPIN_MOTOR.ConfigPeakOutputForward(m_shooterCoeff.kMaxOutput, 10);
-  m_FORE_PORT_SPIN_MOTOR.ConfigPeakOutputReverse(m_shooterCoeff.kMinOutput, 10);
+  m_FORE_PORT_SPIN_MOTOR.ConfigPeakOutputForward(m_FP_SPIN_PID_COEF.kMaxOutput, 10);
+  m_FORE_PORT_SPIN_MOTOR.ConfigPeakOutputReverse(m_FP_SPIN_PID_COEF.kMinOutput, 10);
 
   m_FORE_PORT_TURN_MOTOR.ConfigNominalOutputForward(0, 10);
   m_FORE_PORT_TURN_MOTOR.ConfigNominalOutputReverse(0, 10);
-  m_FORE_PORT_TURN_MOTOR.ConfigPeakOutputForward(m_shooterCoeff.kMaxOutput, 10);
-  m_FORE_PORT_TURN_MOTOR.ConfigPeakOutputReverse(m_shooterCoeff.kMinOutput, 10);
+  m_FORE_PORT_TURN_MOTOR.ConfigPeakOutputForward(m_FP_TURN_PID_COEF.kMaxOutput, 10);
+  m_FORE_PORT_TURN_MOTOR.ConfigPeakOutputReverse(m_FP_TURN_PID_COEF.kMinOutput, 10);
 
   m_FORE_STARBOARD_SPIN_MOTOR.ConfigNominalOutputForward(0, 10);
   m_FORE_STARBOARD_SPIN_MOTOR.ConfigNominalOutputReverse(0, 10);
@@ -92,39 +92,39 @@ Control::Control(){
   // Tuning config
   m_FORE_PORT_SPIN_MOTOR.SelectProfileSlot(0, 0);
   m_FORE_PORT_SPIN_MOTOR.Config_kF(0, m_FP_SPIN_PID_COEF.kFF, 10);
-  m_FORE_PORT_SPIN_MOTOR.config_kP(0, m_FP_SPIN_PID_COEF.kP, 10);
+  m_FORE_PORT_SPIN_MOTOR.Config_kP(0, m_FP_SPIN_PID_COEF.kP, 10);
   m_FORE_PORT_SPIN_MOTOR.Config_kI(0, m_FP_SPIN_PID_COEF.kI, 10);
   m_FORE_PORT_SPIN_MOTOR.Config_kD(0, m_FP_SPIN_PID_COEF.kD, 10);
 
   m_FORE_PORT_TURN_MOTOR.SelectProfileSlot(0, 0);
   m_FORE_PORT_TURN_MOTOR.Config_kF(0, m_FP_TURN_PID_COEF.kFF, 10);
-  m_FORE_PORT_TURN_MOTOR.config_kP(0, m_FP_TURN_PID_COEF.kP, 10);
+  m_FORE_PORT_TURN_MOTOR.Config_kP(0, m_FP_TURN_PID_COEF.kP, 10);
   m_FORE_PORT_TURN_MOTOR.Config_kI(0, m_FP_TURN_PID_COEF.kI, 10);
   m_FORE_PORT_TURN_MOTOR.Config_kD(0, m_FP_TURN_PID_COEF.kD, 10);
 
   m_FORE_STARBOARD_SPIN_MOTOR.SelectProfileSlot(0, 0);
   m_FORE_STARBOARD_SPIN_MOTOR.Config_kF(0, m_FS_SPIN_PID_COEF.kFF, 10);
-  m_FORE_STARBOARD_SPIN_MOTOR.config_kP(0, m_FS_SPIN_PID_COEF.kP, 10);
+  m_FORE_STARBOARD_SPIN_MOTOR.Config_kP(0, m_FS_SPIN_PID_COEF.kP, 10);
   m_FORE_STARBOARD_SPIN_MOTOR.Config_kI(0, m_FS_SPIN_PID_COEF.kI, 10);
   m_FORE_STARBOARD_SPIN_MOTOR.Config_kD(0, m_FS_SPIN_PID_COEF.kD, 10);
 
   m_FORE_STARBOARD_TURN_MOTOR.SelectProfileSlot(0, 0);
   m_FORE_STARBOARD_TURN_MOTOR.Config_kF(0, m_FS_TURN_PID_COEF.kFF, 10);
-  m_FORE_STARBOARD_TURN_MOTOR.config_kP(0, m_FS_TURN_PID_COEF.kP, 10);
+  m_FORE_STARBOARD_TURN_MOTOR.Config_kP(0, m_FS_TURN_PID_COEF.kP, 10);
   m_FORE_STARBOARD_TURN_MOTOR.Config_kI(0, m_FS_TURN_PID_COEF.kI, 10);
   m_FORE_STARBOARD_TURN_MOTOR.Config_kD(0, m_FS_TURN_PID_COEF.kD, 10);
 
   m_AFT_PORT_SPIN_MOTOR.SelectProfileSlot(0, 0);
-  m_AFT_PORT_SPIN_MOTOR.Config_kF(0, m_shooterCoeff.kFF, 10);
-  m_AFT_PORT_SPIN_MOTOR.config_kP(0, m_shooterCoeff.kP, 10);
-  m_AFT_PORT_SPIN_MOTOR.Config_kI(0, m_shooterCoeff.kI, 10);
-  m_AFT_PORT_SPIN_MOTOR.Config_kD(0, m_shooterCoeff.kD, 10);
+  m_AFT_PORT_SPIN_MOTOR.Config_kF(0, m_AP_SPIN_PID_COEF.kFF, 10);
+  m_AFT_PORT_SPIN_MOTOR.Config_kP(0, m_AP_SPIN_PID_COEF.kP, 10);
+  m_AFT_PORT_SPIN_MOTOR.Config_kI(0, m_AP_SPIN_PID_COEF.kI, 10);
+  m_AFT_PORT_SPIN_MOTOR.Config_kD(0, m_AP_SPIN_PID_COEF.kD, 10);
 
   m_AFT_STARBOARD_SPIN_MOTOR.SelectProfileSlot(0, 0);
-  m_AFT_STARBOARD_SPIN_MOTOR.Config_kF(0, m_shooterCoeff.kFF, 10);
-  m_AFT_STARBOARD_SPIN_MOTOR.config_kP(0, m_shooterCoeff.kP, 10);
-  m_AFT_STARBOARD_SPIN_MOTOR.Config_kI(0, m_shooterCoeff.kI, 10);
-  m_AFT_STARBOARD_SPIN_MOTOR.Config_kD(0, m_shooterCoeff.kD, 10);
+  m_AFT_STARBOARD_SPIN_MOTOR.Config_kF(0, m_AS_SPIN_PID_COEF.kFF, 10);
+  m_AFT_STARBOARD_SPIN_MOTOR.Config_kP(0, m_AS_SPIN_PID_COEF.kP, 10);
+  m_AFT_STARBOARD_SPIN_MOTOR.Config_kI(0, m_AS_SPIN_PID_COEF.kI, 10);
+  m_AFT_STARBOARD_SPIN_MOTOR.Config_kD(0, m_AS_SPIN_PID_COEF.kD, 10);
 }
 
 void Control::dashboard_init() {
